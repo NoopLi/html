@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                <p>
+                    i am a paragraph.Some of the
+                    <span>words</span> have been wrapped in a
+                    <span>span element</span>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <span>item One </span><span>item Two</span><span>item Three</span>
+
+                </p>
+            </li>
+        </ul>
+        <p id="One">this is a test </p>
+    </div>
+    <button>
+        click me
+    </button>
+    <button id="hide">隐藏</button>
+    <button id="show">显示</button>
+    <button id="toggle">显隐切换</button>
+    <button id="fadeIn">淡入</button>
+    <button id="fadeOut">淡出</button>
+    <button id="fadeToggle">淡入淡出切换</button>
+    <button id="slideDown">下滑效果</button>
+    <button id="slideUp">上滑效果</button>
+    <div id="Two" style="background-color:purple;display:none;">
+        <p id="pTwo">
+            this is another test
+        </p>
+    </div>
+    <div id="Three">
+        <p id="pThree">
+            this is part three
+        </p>
+    </div>
+    <p id="pFour">下滑效果 </p>
+    
+    <div id="four" style="display:none">
+        this is part four
+    </div>
+    <p id="pFive">上滑效果</p>
+    <p id="pSix">上下滑效果切换</p>
+    <button id="animate">动画开始</button>
+    <div id="five" style="height:50px;width:50px;background-color:red;position:absolute"></div>
+    <script>
+        $(document).ready(function () {
+            //$("span").hide();
+            //$("p").hide()
+            //$("p.class").hide()
+            //$("p#id").hide()
+            //$("[href]").hide()
+            //$("[href='#'").hide()
+            //$("[href!='#'").hide()
+            //$("[href$='.jpg'").hide()//选取并隐藏所有href值以".jpg"的元素
+            $("p").css("background-color", "purple");
+            $("ul li:first")//每个 <ul> 的第一个 <li> 元素
+            $("div#One .Two") //id="One" 的 <div> 元素中的所有 class="Two" 的元素
+            $("button").click(function () {
+                $("p").css("background-color", "blue");
+            })
+            /*jQuery 名称冲突
+            jQuery 使用 $ 符号作为 jQuery 的简介方式。
+            某些其他 JavaScript 库中的函数（比如 Prototype）同样使用 $ 符号。
+            jQuery 使用名为 noConflict() 的方法来解决该问题。
+            var jq=jQuery.noConflict()，帮助您使用自己的名称（比如 jq）来代替 $ 符号。
+            */
+            /*把所有 jQuery 代码置于事件处理函数中
+            把所有事件处理函数置于文档就绪事件处理器中
+            把 jQuery 代码置于单独的 .js 文件中
+            如果存在名称冲突，则重命名 jQuery 库
+            */
+        })
+        $("#hide").click(function () {
+            $("p#One").hide("slow");
+        });
+        $("#show").click(function () {
+            $("p#One").show("slow");
+        });
+        $("#toggle").click(function () {
+            $("#One").toggle(1000);
+        });
+        $("#fadeIn").click(function () {
+            $("div#Two").fadeIn("slow");
+        });
+        $("#fadeOut").click(function () {
+            $("div#Three").fadeOut("slow");
+        });
+        $("#fadeToggle").click(function () {
+            $("div").fadeToggle("slow");
+        });
+        /*$("button").click(function(){
+            $("div").fadeTo("slow",0.5);
+        });
+        */
+        $("p#pFour").click(function(){
+            $("div#four").slideDown("slow");
+        });
+        $("p#pFive").click(function(){
+            $("div#four").slideUp("slow");
+        });
+        $("p#pSix").click(function(){
+            $("div#four").slideToggle("slow");
+        });
+        //$("#animate").click(function(){
+          //  $("div#five").animate({left:'100px'});
+        //});/*默认地，所有 HTML 元素都有一个静态位置，且无法移动。
+           // 如需对位置进行操作，要记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute！*/
+        $("#animate").click(function(){
+            //$("div#five").animate({
+                //left:"500px",
+                //height:"150px",
+                //width:"150px",
+                //opacity:"0.1",
+                //left:"+=500px",
+                //height:"toggle",
+            //})
+            var div =$("div#five");
+            div.animate({left:"500px"},"slow");
+            div.animate({backgroundColor:"purple"},"fast");
+        })
+        /*当使用 animate() 时，必须使用 Camel 标记法(驼峰法）书写所有的属性名，比如，必须使用 paddingLeft 而不是 padding-left，使用 marginRight 而不是 margin-right，等等。
+        同时，色彩动画并不包含在核心 jQuery 库中。
+        如果需要生成颜色动画，您需要从 jQuery.com 下载 Color Animations 插件。*/
+        
+    </script>
+</body>
+
+</html>

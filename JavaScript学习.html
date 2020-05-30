@@ -1,0 +1,56 @@
+<!doctype html>
+<head>
+
+</head>
+<body>
+    <div>
+        <p>
+            <a id="dome">JavaScript输出<br></a>
+            <ul>
+                <li>使用window.alert()弹出警告框。</li>
+                <li>使用document.write()防腐将内容写到HTML文档中。</li>
+                <li>使用inneerHTML写入到HTML元素。</li>
+                <li>使用console.log()写入到浏览器的控制台。</li>
+            </ul>
+            <table border="1">
+                <th  align="center">JavaScript语言有多种类型的运算符</th>
+                <tr  align="center">
+                    <td>Type</td>
+                    <td>实例</td>
+                    <td>描述</td>
+                </tr>
+                <tr  align="center">
+                    <td> 赋值，算术和位运算符</td>
+                    <td>	=  +  -  *  /</td>
+                    <td>在 JS 运算符中描述</td>
+                </tr>
+                <tr  align="center">
+                    <td> 条件，比较及逻辑运算符</td>
+                    <td>	==  != <  > </td>
+                    <td>在 JS 比较运算符中描述</td>
+                </tr>
+            </table>
+            
+        </p>
+        <button onclick="myFunction()">
+            点我
+        </button>
+
+    </div>
+    <script>
+        //window.alert(5+6);
+        document.getElementById("dome").innerHTML="段落已修改。";
+        document.write(Date());//仅仅向文档输出写内容
+        document.write("你好 \ W3Cshool");
+        function myFunction(){
+            document.write(Date());
+        }
+        a=5;
+        b=10;
+        c=a+b;
+        console.log(c);
+        /*
+        多行注释
+        */
+    </script>
+</body>
